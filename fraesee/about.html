@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fraesee - about me</title>
+
+    <link rel="icon" type="image/jpg" href="images/favicon.jpg">
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            overflow-x: hidden;
+            overflow-y: auto;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            padding: 30px 15px 140px;
+
+            color: #fff;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            text-align: center;
+
+            box-sizing: border-box;
+
+        }
+
+
+        body {
+            background-image: url("images/bgxd.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        h1 {
+            font-size: clamp(30px, 5vw, 45px);
+            margin-bottom: 10px;
+        }
+
+        p,
+        tt {
+            max-width: 1000px;
+            padding: 0 15px;
+        }
+
+        a {
+            color: #00bfff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #ff007f;
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .homeimg {
+            width: min(282px, 90vw);
+            margin: 20px 0;
+        }
+
+        .aboutcont {
+            width: min(1100px, 92%);
+            background: rgba(17, 17, 17, 0.84);
+            border: 2px solid #333;
+            padding: 25px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .contactbox {
+            width: min(800px, 92%);
+            background: rgba(17, 17, 17, 0.84);
+            border: 2px solid #333;
+            padding: 25px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .tt {
+            font-size: clamp(13px, 1.5vw, 15px);
+        }
+
+        .tts {
+            font-size: clamp(18px, 2.8vw, 25px);
+        }
+
+        .tts2 {
+            font-size: clamp(17px, 2.2vw, 20px);
+        }
+
+        .bt {
+            color: #fff;
+            font-size: 3px;
+        }
+
+        .imagerow,
+        .imagerowb {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .imagerow {
+            align-items: flex-start;
+        }
+
+        .imagerowb {
+            align-items: center;
+        }
+
+        .imagerow img {
+            width: min(150px, 22vw);
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .imagerowb img {
+            width: min(225px, 35vw);
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+
+        .blur-image {
+            filter: blur(10px);
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .blur-image:hover {
+            filter: blur(7px);
+        }
+
+        .blur-image.revealed {
+            filter: blur(0);
+        }
+
+        .projectcontainer {
+            width: min(1000px, 90%);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .projectcard {
+            background: rgba(17, 17, 17, .9);
+            border: 2px solid #333;
+            padding: 20px;
+            text-align: left;
+            transition: border-color .2s;
+        }
+
+        .projectcard:hover {
+            border-color: #00bfff;
+        }
+
+        .projectcard img {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .navbotum {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            max-width: 95%;
+            padding: 12px 20px;
+
+            background: #111;
+            border: 2px solid #333;
+            box-sizing: border-box;
+        }
+
+        .navbotum a {
+            margin: 0;
+            padding: 8px 16px;
+
+            color: #fff;
+            text-decoration: none;
+
+            background: #222;
+            border: 1px solid #222;
+        }
+
+        .navbotum a:hover {
+            background: #333;
+            color: #00bfff;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 20px;
+                padding-bottom: 170px;
+            }
+
+            h1 img {
+                width: 45px;
+                height: auto;
+            }
+
+            .imagerow,
+            .imagerowb {
+                gap: 12px;
+            }
+
+            .navbotum {
+                width: 95%;
+                bottom: 10px;
+            }
+
+            .imagerow img {
+                width: min(150px, 40vw);
+                height: auto;
+                aspect-ratio: 1 / 2;
+            }
+
+            .imagerowb img {
+                width: min(225px, 42vw);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="images/aboutme.gif" width="400" height="200">
+
+    <p>
+        <strong>
+            I mainly go by kinuh, but at times I like to be called Fraesee (its pronounce three-see)<br>
+            "kinuh" is ALWAYS full lowercase!!! "Fraesee" is either lowercase or uppercase "F"
+        </strong>
+    </p>
+    <div class="aboutcont">
+        
+		<p class="tts">
+			Hello my names kinuh........... I've always wanted a website so I decided why not just do it and not be a lazy BUM
+			some common questions below if you have anymore scroll to the bottom
+		</p> 
+	
+		<h1>Q&A</h1>
+        <h1>
+            ⁃ hobbies? what do you like? o.O
+            <img src="images/telescope.gif" width="80" height="80">
+        </h1>
+
+        <p class="tts">
+            I got some hobbies: gaming*, art, music**, reading, occasionally worldbuilding/writing, game dev stuff
+            <br>
+            i also eat glue
+        </p>
+
+        <p class="tt">
+            *personally, I only somewhat consider gaming a hobby, like 16 hours a day on runescape is kinda not a hobby is it jamie<br>
+            **only listening... does that count? I dont know...
+        </p>
+
+        <div class="imagerow">
+            <img src="images/bookpre.jpg">
+            <img src="images/whatahailbook.jpg">
+            <img src="images/kbxd.jpg">
+            <img src="images/tanya.jpg">
+        </div>
+
+        <tt>
+            first 3 dune book are good! rest suck. hail mary was soooooo good, and so was the movie!!, akotsk was also amazing (and tv show!).<br>
+            YOUJO SENKI IS SOO GOOD. im not a war guy but i love it fav LN
+            hate the anime
+        </tt>
+
+        <h1>⁃ favourite game??? ;d</h1>
+
+        <p class="tts2">
+            dark souls 1. I love the interconnected world (mainly at firelink shrine) and I think anor londo is the best area fromsoftware has ever done.
+            now obviously im sorta a newgen, my first soulsborne game was elden ring lol, but I felt that I enjoyed the "lore" (hate calling it that lowk)
+            far more than I did for elden ring or other soulsborne games. learning about the first flame and the age of fire really made my mind wander a 
+            little and led me to fill in the gaps with my ideas, not from a youtube video (not bashing anyone who did)<br><br>
+
+            dark souls 1 also inspired 
+            <a href="https://www.royalroad.com/fiction/110361/fallow">fallow!</a>
+            a short story I submitted for my schools 1000 word thingy.
+            I didn't win (they chose like 20 winners) and I think that the reason was because they thought it was ai generated :(
+            I just read a lot!! em dashes aren't rare at alllllllll UGHHhh.h.h...
+            not to be too critical but the pacing is wack in that thing, 1000 is NOT enough words (it also sucks, im way better now)
+        </p>
+
+        <div class="imagerow">
+            <img src="images/ds1.jpg">
+            <img src="images/fallowking.png">
+        </div>
+
+        <tt>
+            ds1 my beloved...... <3
+        </tt>
+
+        <h1>
+            ⁃ favourite band? ( ͡• _•)
+            <img src="images/wmusic.gif" width="56" height="45">
+        </h1>
+
+        <p class="tts2">
+            At the moment it has to be glass beach and you are an angel (yaaa is j's solo band since glass beach disbanded),
+            I have known them for soooo long because of bedroom community, but I never really gave them a listen until recently and I fell in love.
+            My fav glass beach song is commatose followed by the CIA, and the yaaa its kate said at the moment (but the song you are an angel is really good as well!!!)
+        </p>
+        <div class="imagerowb">
+            <a href="https://glassbeach.bandcamp.com/" target="_blank">
+                <img src="images/gbband.jpg">
+            </a>
+
+            <a href="https://awawawaworld.bandcamp.com/album/its-fine-to-dream" target="_blank">
+                <img src="images/yaaa.jpg">
+            </a>
+        </div>
+        <tt>these are clickable</tt>
+        <h1>⁃ fun fact(s)? or you too private????? huh?!!</h1>
+
+        <p class="tts2">
+            i get nosebleeds a lot. like 1 per week<br>
+            
+            i like anime<br><br>
+            and im 5"7 (172cm) at 18 (its over)<br>
+            (also i hate this btw, when you google 172cm in feet, it says 5.643 feet THAT IS NOT 5 FOOT 6. ITS 5.64 FEET WITHOUT INCHES. THATS 5 FOOT AND 7.7 INCHES)<br>
+            can i round up to 5 foot 8 btw?
+<br><br>
+            TRIGGER WARNING BLOOD ON IMAGES BELOW
+        </p>
+
+        <div class="imagerow">
+            <img class="blur-image" src="images/blood_1.jpg" onclick="this.classList.toggle('revealed')">
+            <img class="blur-image" src="images/blood_2.jpg" onclick="this.classList.toggle('revealed')">
+        </div>
+<br>
+        <tt>
+            bad nosebleed in the bathroom, was feeling lightheaded after :(
+            <br>     awesome blur affect though got it online
+        </tt>
+
+        <h1>⁃</h1>
+
+        <p class="tts">
+            idk what other question you might have so dm me on discord and ill add it<br>
+            its on my <a href="socials.html">socials</a> section
+        </p>
+
+    </div>
+
+    <nav class="navbotum">
+        <a href="index.html">home</a>
+        <a href="about.html">about me (you're here!!)</a>
+        <a href="projects.html">projects</a>
+        <a href="gallery.html">gallery</a>
+        <a href="socials.html">socials</a>
+    </nav>
+
+    <br><br><br><br><br><br><br><br>
+
+    <p>this is so you can scroll and see the text</p>
+
+</body>
+</html>
