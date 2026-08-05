@@ -1,370 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>fraesee - gallery</title>
 
     <link rel="icon" type="image/jpg" href="images/favicon.jpg">
 
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
+    <!-- replace the huge style section xdxdxd -->
+    <link rel="stylesheet" href="style.css">
+</head>
 
-            overflow-x: hidden;
-            overflow-y: auto;
 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+<body class="gallery">
 
-            padding: 30px 15px 140px;
+    <!-- STRAIGHT FROM THE INTERNET xD -->
+    <div class="lbox" id="lbox" onclick="closeImage()">
+        <div class="lboxcon" onclick="event.stopPropagation()">
+            <img id="lbox-img">
+            <p id="lbox-caption"></p>
+        </div>
+    </div>
 
-            color: #fff;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            text-align: center;
 
-            box-sizing: border-box;
+    <script>
+    function openImage(src, caption) {
+        document.getElementById("lbox-img").src = src;
+        document.getElementById("lbox-caption").textContent = caption;
+        document.getElementById("lbox").style.display = "flex";
+    }
 
+    function closeImage() {
+        document.getElementById("lbox").style.display = "none";
+    }
+
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") {
+            closeImage();
         }
+    });
+    </script>
 
 
-        body {
-            background-image: url("images/bgcompressiongodmode.jpg");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
 
-        h1 {
-            font-size: clamp(30px, 5vw, 45px);
-            margin-bottom: 10px;
-        }
+    <div class="pagebox">
 
-        p,
-        tt {
-            max-width: 1000px;
-            padding: 0 15px;
-        }
+        <h1>
+            my art
+            <img src="images/tele2.gif" width="80" height="80">
+        </h1>
 
-        a {
-            color: #00bfff;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: bold;
-        }
+        </h1>
+        do you like the ultra compressed bg??? (,,>﹏<,,)👉👈
 
-        a:hover {
-            color: #ff007f;
-            text-decoration: underline;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .homeimg {
-            width: min(282px, 90vw);
-            margin: 20px 0;
-        }
-
-        .aboutcont {
-            width: min(1100px, 92%);
-            background: rgba(17, 17, 17, 0.84);
-            border: 2px solid #333;
-            padding: 25px;
-            box-sizing: border-box;
-            text-align: left;
-        }
-
-        .contactbox {
-            width: min(800px, 92%);
-            background: rgba(17, 17, 17, 0.84);
-            border: 2px solid #333;
-            padding: 25px;
-            box-sizing: border-box;
-            text-align: left;
-        }
-
-        .tt {
-            font-size: clamp(13px, 1.5vw, 15px);
-        }
-
-        .tts {
-            font-size: clamp(18px, 2.8vw, 25px);
-        }
-
-        .tts2 {
-            font-size: clamp(17px, 2.2vw, 20px);
-        }
-
-        .bt {
-            color: #fff;
-            font-size: 3px;
-        }
-
-        .imagerow,
-        .imagerowb {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .imagerow {
-            align-items: flex-start;
-        }
-
-        .imagerowb {
-            align-items: center;
-        }
-
-        .imagerow img {
-            width: min(250px, 40vw);
-            height: 350px;
-            object-fit: cover;
-            cursor: pointer;
-            transition: .2s;
-        }
-
-        .imagerow img:hover {
-            transform: scale(1.03);
-        }
-
-        .imagerowb img {
-            width: min(225px, 35vw);
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-        }
-
-        .blur-image {
-            filter: blur(10px);
-            cursor: pointer;
-            transition: .3s;
-        }
-
-        .blur-image:hover {
-            filter: blur(7px);
-        }
-
-        .blur-image.revealed {
-            filter: blur(0);
-        }
-
-        .projectcontainer {
-            width: min(1000px, 90%);
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .projectcard {
-            background: rgba(17, 17, 17, .9);
-            border: 2px solid #333;
-            padding: 20px;
-            text-align: left;
-            transition: border-color .2s;
-        }
-
-        .projectcard:hover {
-            border-color: #00bfff;
-        }
-
-        .projectcard img {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
-
-        .navbotum {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-
-            max-width: 95%;
-            padding: 12px 20px;
-
-            background: #111;
-            border: 2px solid #333;
-            box-sizing: border-box;
-        }
-
-        .navbotum a {
-            margin: 0;
-            padding: 8px 16px;
-
-            color: #fff;
-            text-decoration: none;
-
-            background: #222;
-            border: 1px solid #222;
-        }
-
-        .navbotum a:hover {
-            background: #333;
-            color: #00bfff;
-            text-decoration: none;
-        }
-
-        .lbox {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.9);
-
-            display: none;
-            justify-content: center;
-            align-items: center;
-
-            z-index: 9999;
-            cursor: pointer;
-        }
-
-        .lbox img {
-            max-width: 90vw;
-            max-height: 90vh;
-            width: auto;
-            height: auto;
-            object-fit: contain;
-            cursor: default;
-        }
-
-        .lboxcon {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        #lbox-caption {
-            margin: 0;
-            max-width: 90vw;
-            color: #fff;
-            font-size: 18px;
-            text-align: center;
-        }
-
-		.pagebox {
-			width: min(1250px, calc(100% - 60px));
-
-			background: rgba(17, 17, 17, 0.82);
-			border: 2px solid #333;
-
-			padding: 30px;
-			margin: 20px auto;
-
-			box-sizing: border-box;
-		}
-
-        .imagerow,
-        .imagerowb {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px auto;
-
-            max-width: 1200px;
-            width: calc(100% - 80px);  
-            /*calc us short for calculator xdxdxdxd*/
-        }
-
-
-        @media (max-width: 768px) {
-            body {
-                padding-top: 20px;
-                padding-bottom: 170px;
-            }
-
-            h1 img {
-                width: 45px;
-                height: auto;
-            }
-
-            .navbotum {
-                width: 95%;
-                bottom: 10px;	
-            }
-
-            .imagerow img {
-                width: min(150px, 40vw);
-                height: auto;
-                aspect-ratio: 1 / 2;
-            }
-
-            .imagerowb img {
-                width: min(225px, 42vw);
-            }
-            
-        }
-    </style>
-</head><!-- STRAIGHT FROM THE INTERNET xD -->
-        <div class="lbox" id="lbox" onclick="closeImage()">
-            <div class="lboxcon" onclick="event.stopPropagation()">
-                <img id="lbox-img">
-                <p id="lbox-caption"></p>
-            </div>
+        <div class="imagerow">
+            <h2>its empty.... MY ART ISNT GOOD ENOUGH YET (╥﹏╥)</h2>
         </div>
 
-        <script> <!-- wtf does this mean is this javascript??????????? -->
-        function openImage(src, caption) {
-            document.getElementById("lbox-img").src = src;
-            document.getElementById("lbox-caption").textContent = caption;
-            document.getElementById("lbox").style.display = "flex";
-        }
 
-        function closeImage() {
-            document.getElementById("lbox").style.display = "none";
-        }
+        <h1>random pics :DDD</h1>
+        <p>you can click ;p</p>
 
-        document.addEventListener("keydown", function(e) {
-            if (e.key === "Escape") {
-                closeImage();
-            }
-        });
-        </script>
-<div class="pagebox">
-    <h1>my art</h1>
-    <div class="imagerow">
-        <h2>its empty.... MY ART ISNT GOOD ENOUGH YET (╥﹏╥)</h2>
-    </div>
-		<br>do you like the ultra compressed bg??? (,,>﹏<,,)👉👈 <br>(54 and doing this bro)
-    <h1>random pics :DDD</h1>
+
         <div class="imagerow">
+
             <img src="images/mcmental.jpg"
-                onclick="openImage(this.src,'pic of my minecraft house on a eaglercraft website in school lol (weeks before a levels btw) was in the world with my frien')">
+            onclick="openImage(this.src,'pic of my minecraft house on a eaglercraft website in school lol')">
+
 
             <img src="images/ray.jpg"
-                onclick="openImage(this.src,'rayman legends on an crt! thought this was tuff')">
+            onclick="openImage(this.src,'rayman legends on an crt! thought this was tuff')">
+
 
             <img src="images/lain.jpg"
-                onclick="openImage(this.src,'lain is awesome on crt!!!!!!!!!!!!!!! this is when i first got it xd (the tv)')">
+            onclick="openImage(this.src,'lain is awesome on crt!!!!!!!!')">
+
 
             <img src="images/unc.jpg"
-                onclick="openImage(this.src,'unc machinery, i think it was windows xp or 7 one of them 2.')">
+            onclick="openImage(this.src,'unc machinery')">
+
 
             <img src="images/soap.jpg"
-                onclick="openImage(this.src,'saop')">
+            onclick="openImage(this.src,'saop')">
+
+
             <img src="images/titledtowers.jpg"
-                onclick="openImage(this.src,'SEASON 4 FORTNITE??? AT MY SCHOOL!!!!!!!!!!!! OMG')">
+            onclick="openImage(this.src,'SEASON 4 FORTNITE??? AT MY SCHOOL!!!!!!!!')">
+
+
             <img src="images/theruneonthecrt.jpg"
-                onclick="openImage(this.src,'Oh Kris.')">
+            onclick="openImage(this.src,'I played chapters 1-5 on CRT was so cool. I only did jevil on crt because the input lag (was going from pc -> converter -> crt) so delay was baddd')">
+
         </div>
 
-
-</div>
-<body>
+    </div>
     <nav class="navbotum">
         <a href="index.html">home</a>
         <a href="about.html">about me</a>
@@ -373,5 +104,7 @@
         <a href="socials.html">socials</a>
     </nav>
 
+
 </body>
+
 </html>
