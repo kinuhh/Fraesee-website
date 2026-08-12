@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,19 +8,33 @@
     <link rel="icon" type="image/jpg" href="images/favicon.jpg">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<h1>not ready okay.... pls be patient >-<</h1>
-<body class="projects"></body>
+<body class="projects">
 
-</div>
+    <audio id="bg-music" preload="none"></audio>
+
+    <div class="altynai-widget" id="altynai-widget">
+        <div class="altynai-buttons" id="altynai-buttons"></div>
+        <div class="altynai-image-wrap" id="altynai-image-wrap">
+            <img src="images/altynai.png" alt="Altynai" draggable="false">
+        </div>
+        <div class="altynai-textbox" id="altynai-textbox">...</div>
+    </div>
+
     <nav class="navbotum">
-
-        <a href="index.html">home</a>
-        <a href="about.html">about me</a>
-        <a href="projects.html">projects (you're here!!)</a>
-        <a href="gallery.html">gallery</a>
-        <a href="socials.html">socials</a>
-
+        <a href="index.html" data-label="home">home</a>
+        <a href="about.html" data-label="about me">about me</a>
+        <a href="projects.html" data-label="projects">projects (you're here!!)</a>
+        <a href="gallery.html" data-label="gallery">gallery</a>
+        <a href="socials.html" data-label="socials">socials</a>
     </nav>
+
+    <main id="page-content">
+
+        <h1>not ready okay.... pls be patient >-<</h1>
+
+    </main>
+
+    <script src="js/altynai.js"></script>
+    <script src="js/pjax.js"></script>
 </body>
 </html>

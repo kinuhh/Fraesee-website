@@ -8,43 +8,61 @@
     <link rel="icon" type="image/jpg" href="images/favicon.jpg">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<body class="home"></body>
-    <h1>Welcome to my website!! :D</h1>
+<body class="home">
 
-    <p>
-        I lowkey only learnt HTML/CSS in my first year of A-Levels so this whole website is terribly coded. No AI though xd<br>
-        also entirely coded in Notepad++
-    </p>
 
-    <tt>I paid £7.50 for this website domain so I'm getting use out of it :p</tt>
+    <audio id="bg-music" preload="none"></audio>
 
-    <br>
-
-    <img src="images/histranger.png" alt="Asya from Z.A.T.O" width="282" height="400" class="homeimg">
-
-    <br>
-
-    <tt>
-        made for desktop pcs! mainly 1080p and 2k.
-        <br>website size: 
-    </tt>
+    <div class="altynai-widget" id="altynai-widget">
+        <div class="altynai-buttons" id="altynai-buttons"></div>
+        <div class="altynai-image-wrap" id="altynai-image-wrap">
+            <img src="images/altynai.png" alt="Altynai" draggable="false">
+        </div>
+        <div class="altynai-textbox" id="altynai-textbox">...</div>
+    </div>
 
     <nav class="navbotum">
-        <a href="index.html">home (you're here!!)</a>
-        <a href="about.html">about me</a>
-        <a href="projects.html">projects</a>
-        <a href="gallery.html">gallery</a>
-        <a href="socials.html">socials</a>
+        <a href="index.html" data-label="home">home (you're here!!)</a>
+        <a href="about.html" data-label="about me">about me</a>
+        <a href="projects.html" data-label="projects">projects</a>
+        <a href="gallery.html" data-label="gallery">gallery</a>
+        <a href="socials.html" data-label="socials">socials</a>
     </nav>
-    <p style="color: black;">
-        On Thursday, I was but a child to you,
-        On Friday, I was a few years your junior,
-        On Saturday, I was the same age as you,
-        On Sunday, I was only a year older.
-        Who knows how old I will be on Monday,
-        or maybe even Tuesday?
-    </p>
 
+    <main id="page-content">
+
+        <h1>Welcome to my website!! :D</h1>
+
+        <p>
+            I lowkey only learnt HTML/CSS in my first year of A-Levels so this whole website is terribly coded. No AI though xd<br>
+            also entirely coded in Notepad++
+        </p>
+
+        <tt>I paid £7.50 for this website domain so I'm getting use out of it :p</tt>
+
+        <br>
+
+        <img src="images/histranger.png" alt="Asya from Z.A.T.O" width="282" height="400" class="homeimg">
+
+        <br>
+
+        <tt>
+            made for desktop pcs! mainly 1080p and 2k.
+            <br>website size: 
+        </tt>
+
+        <p style="color: black;">
+            On Thursday, I was but a child to you,
+            On Friday, I was a few years your junior,
+            On Saturday, I was the same age as you,
+            On Sunday, I was only a year older.
+            Who knows how old I will be on Monday,
+            or maybe even Tuesday?
+        </p>
+
+    </main>
+
+    <script src="js/altynai.js"></script>
+    <script src="js/pjax.js"></script>
 </body>
 </html>

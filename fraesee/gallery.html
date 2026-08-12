@@ -9,104 +9,116 @@
 
     <link rel="icon" type="image/jpg" href="images/favicon.jpg">
 
-    <!-- replace the huge style section xdxdxd -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 
 <body class="gallery">
 
-    <!-- STRAIGHT FROM THE INTERNET xD -->
-    <div class="lbox" id="lbox" onclick="closeImage()">
-        <div class="lboxcon" onclick="event.stopPropagation()">
-            <img id="lbox-img">
-            <p id="lbox-caption"></p>
+    <audio id="bg-music" preload="none"></audio>
+
+    <div class="altynai-widget" id="altynai-widget">
+        <div class="altynai-buttons" id="altynai-buttons"></div>
+        <div class="altynai-image-wrap" id="altynai-image-wrap">
+            <img src="images/altynai.png" alt="Altynai" draggable="false">
         </div>
+        <div class="altynai-textbox" id="altynai-textbox">...</div>
     </div>
 
-
-    <script>
-    function openImage(src, caption) {
-        document.getElementById("lbox-img").src = src;
-        document.getElementById("lbox-caption").textContent = caption;
-        document.getElementById("lbox").style.display = "flex";
-    }
-
-    function closeImage() {
-        document.getElementById("lbox").style.display = "none";
-    }
-
-    document.addEventListener("keydown", function(e) {
-        if (e.key === "Escape") {
-            closeImage();
-        }
-    });
-    </script>
-
-
-
-    <div class="pagebox">
-
-        <h1>
-            my art
-            <img src="images/tele2.gif" width="80" height="80">
-        </h1>
-
-        </h1>
-        do you like the ultra compressed bg??? (,,>﹏<,,)👉👈
-
-        <div class="imagerow">
-            <h2>its empty.... MY ART ISNT GOOD ENOUGH YET (╥﹏╥)</h2>
-        </div>
-
-
-        <h1>random pics :DDD</h1>
-        <p>you can click ;p</p>
-
-
-        <div class="imagerow">
-
-            <img src="images/mcmental.jpg"
-            onclick="openImage(this.src,'pic of my minecraft house on a eaglercraft website in school lol')">
-
-
-            <img src="images/ray.jpg"
-            onclick="openImage(this.src,'rayman legends on an crt! thought this was tuff')">
-
-
-            <img src="images/lain.jpg"
-            onclick="openImage(this.src,'lain is awesome on crt!!!!!!!!')">
-
-
-            <img src="images/unc.jpg"
-            onclick="openImage(this.src,'unc machinery')">
-
-
-            <img src="images/soap.jpg"
-            onclick="openImage(this.src,'saop')">
-
-
-            <img src="images/titledtowers.jpg"
-            onclick="openImage(this.src,'SEASON 4 FORTNITE??? AT MY SCHOOL!!!!!!!!')">
-
-
-            <img src="images/theruneonthecrt.jpg"
-            onclick="openImage(this.src,'I played chapters 1-5 on CRT was so cool. I only did jevil on crt because the input lag (was going from pc -> converter -> crt) so delay was baddd')">
-
-            <img src="images/22k.jpg"
-            onclick="openImage(this.src,'highest achieved elo in premier!! :)')">
-
-        </div>
-
-    </div>
     <nav class="navbotum">
-        <a href="index.html">home</a>
-        <a href="about.html">about me</a>
-        <a href="projects.html">projects</a>
-        <a href="gallery.html">gallery (you're here!!)</a>
-        <a href="socials.html">socials</a>
+        <a href="index.html" data-label="home">home</a>
+        <a href="about.html" data-label="about me">about me</a>
+        <a href="projects.html" data-label="projects">projects</a>
+        <a href="gallery.html" data-label="gallery">gallery (you're here!!)</a>
+        <a href="socials.html" data-label="socials">socials</a>
     </nav>
 
+    <main id="page-content">
+
+        <!-- STRAIGHT FROM THE INTERNET xD -->
+        <div class="lbox" id="lbox" onclick="closeImage()">
+            <div class="lboxcon" onclick="event.stopPropagation()">
+                <img id="lbox-img">
+                <p id="lbox-caption"></p>
+            </div>
+        </div>
+
+        <script>
+        function openImage(src, caption) {
+            document.getElementById("lbox-img").src = src;
+            document.getElementById("lbox-caption").textContent = caption;
+            document.getElementById("lbox").style.display = "flex";
+        }
+
+        function closeImage() {
+            document.getElementById("lbox").style.display = "none";
+        }
+
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "Escape") {
+                closeImage();
+            }
+        });
+        </script>
+
+        <div class="pagebox">
+
+            <h1>
+                my art
+                <img src="images/tele2.gif" width="80" height="80">
+            </h1>
+
+            do you like the ultra compressed bg??? (,,>﹏<,,)👉👈
+
+            <div class="imagerow">
+                <h2>its empty.... MY ART ISNT GOOD ENOUGH YET (╥﹏╥)</h2>
+            </div>
+
+
+            <h1>random pics :DDD</h1>
+            <p>you can click ;p</p>
+
+
+            <div class="imagerow">
+
+                <img src="images/mcmental.jpg"
+                onclick="openImage(this.src,'pic of my minecraft house on a eaglercraft website in school lol')">
+
+
+                <img src="images/ray.jpg"
+                onclick="openImage(this.src,'rayman legends on an crt! thought this was tuff')">
+
+
+                <img src="images/lain.jpg"
+                onclick="openImage(this.src,'lain is awesome on crt!!!!!!!!')">
+
+
+                <img src="images/unc.jpg"
+                onclick="openImage(this.src,'unc machinery')">
+
+
+                <img src="images/soap.jpg"
+                onclick="openImage(this.src,'saop')">
+
+
+                <img src="images/titledtowers.jpg"
+                onclick="openImage(this.src,'SEASON 4 FORTNITE??? AT MY SCHOOL!!!!!!!!')">
+
+
+                <img src="images/theruneonthecrt.jpg"
+                onclick="openImage(this.src,'I played chapters 1-5 on CRT was so cool. I only did jevil on crt because the input lag (was going from pc -> converter -> crt) so delay was baddd')">
+
+                <img src="images/22k.jpg"
+                onclick="openImage(this.src,'highest achieved elo in premier!! :)')">
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="js/altynai.js"></script>
+    <script src="js/pjax.js"></script>
 
 </body>
 
