@@ -1,6 +1,6 @@
 (function () {
 
-  const draggablelines = [
+const draggablelines = [
     "you know im draggable!!",
     "psst, drag me around :p",
     "im moveable, just so you know....",
@@ -14,34 +14,34 @@
     "Do anything fun today? i sure didn't..",
     "This site sucks if you ask me, not enough dopamine from short form content",
     "Imagine drawing for almost a year and resorting to a stickman, god",
-    "You'd think being someones oc would be fun, right?",
-    "Just learnt that im essentially a speaker, day ruined",
-    "Did you hear? jL is a stand in for vitality! god they were desperate....",
+    "You'd think being someone's oc would be fun, right?",
+    "Just learned that im essentially a speaker, day ruined",
+    "Did you hear? jL is a stand in for Vitality! god they were desperate....",
     "Prior to being on a website, i was meant to be immortal (oc lore)",
     "Fun fact: i was kinuh's 3rd ever (fleshed out) oc! just after 'volha' who he now hates",
     "I was created to be in a videogame, but my purple hair got me removed for a generic black-haired girl",
     "Did you know my name (altynai) means golden moon?",
     "In my lore im partially blind, mute and im deaf in my right ear. was the tradeoffs for being immortal, you see",
     ":)",
-    "Gay and flavourful, story of someones life",
+    "Gay and flavourful, story of someone's life",
     "You know i dont think zywoo is even that good",
     ":000",
     "The 'goats' of anything before 2020 would get smoked by karrigan now, the skill ceiling has risen dramatically",
     "Inspector Goole is an inspector",
-    "Are insults a projection of ones insecurities, I think mine are",
-    "Seg ig...",
+    "Are insults a projection of one's insecurities, I think mine are",
+    "See ig...",
     "That new black haired girl isnt even an immortal, stupid kinuh",
     "Im meant to be 5 foot 1, talk about being tall",
     "kinuh intentionally made this website look bad, lol",
     "If you see an error, report it to him!",
     "kinuh's shit coding skills managed to code me, so you can do anything!",
     "It took fraesee almost 8 hours to code me btw...",
-    "Fraesee learnt (copied online) javascript for me! how nice",
+    "Fraesee learned (copied online) JavaScript for me! how nice",
     "Do you think im the mouthpiece for kinuh himself?",
     "Any conversation can be meaningful",
     "This is a one-way conversation, yet I don't view that as bad",
     "Karrigan is goat igl, apex surrounded with superstars",
-    "This worlds script has been written by someone who made those same roads",
+    "This world's script has been written by someone who made those same roads",
     "None of the music played is made by fraesee",
     "Wish i got invited to parties"
   ];
@@ -51,7 +51,7 @@
     "Where we off to?",
     "My x and y coordinates changed",
     "My position gets saved on different pages",
-    "The stars look beautifal tonight, dont they?",
+    "The stars look beautiful tonight, dont they?",
     "This a good spot",
     "I actually like this spot",
     "I liked that spot :(",
@@ -70,8 +70,8 @@
 
   const clicklines = [
     "Yes that but drag next time",
-    "For you information, you're meant to drag me",
-    "okay you learnt you can do that, great.",
+    "For your information, you're meant to drag me",
+    "okay you learned you can do that, great.",
     "Hm? did you want to move me?",
     "Hm?",
     "Buttons are above me? or are you blind as well as annoying?",
@@ -91,32 +91,32 @@
 
   const pokeannoyedlines = [
     "First time using a mouse? god MOVE IT whilst HOLDING",
-    "Okay stop now or Ill IP ban you",
+    "Okay stop now or I'll IP ban you",
     "Seriously stop",
     "I will bite you",
-    "Poke me one more time and ill start crying if I need too!!",
-    "Ill calm down if you stop for 3 seconds!!!!!",
+    "Poke me one more time and I'll start crying if I need to!!",
+    "I'll calm down if you stop for 3 seconds!!!!!",
     "How meaningful",
     "Maybe you should poke your head outside and look for a partner",
-    "Your how old? and doing this?",
-    "I will run a javascript script to steal your data",
+    "You're how old? and doing this?",
+    "I will run a JavaScript script to steal your data",
     "Anything else?",
     "Wonderfully done...",
     "Am I falling for max tier ragebait?",
-    "Is it ragebait if your meaning a big meany?",
+    "Is it ragebait if you're meaning a big meany?",
     "The lion pays attention to ragebait as it's an unhealthy, addictive cycle",
-    "You ever watched saw? Lets just say I wont be adam or lawrence",
-    "Your the life at parties aren't you? Or do you not get invited?"
+    "You ever watched Saw? Let's just say I won't be Adam or Lawrence",
+    "You're the life at parties aren't you? Or do you not get invited?"
   ];
 
   const whorulines = [
-    "My names altynai, its a name...",
+    "My name's altynai, it's a name...",
     "Altynai is my name! pronounced altynai!",
     "Altynai, my creator wanted a unique name you see",
-    "Altynai, I was never given and last name",
-    "Just someones oc, happened to be named altynai",
+    "Altynai, I was never given a last name",
+    "Just someone's oc, happened to be named altynai",
     "Hello!! My name altynai, currently an image",
-    "Nice to meet you, my names altynai! Whats yours?"
+    "Nice to meet you, my name's altynai! What's yours?"
   ];
 
   const annoyedlines = [

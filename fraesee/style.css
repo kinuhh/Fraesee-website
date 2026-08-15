@@ -37,12 +37,17 @@ body.projects {
 }
 
 body.contact {
-    background-image: url("images/bgradio.jpg");
+    background-image: url("images/pattern.jpg");
 }
 
 body.about {
     background-image: url("images/bgxd.jpg");
 }
+
+body.osu {
+    background-image: url("images/star3.gif");
+}
+
 
 h1 {
     font-size: clamp(30px, 5vw, 45px);
