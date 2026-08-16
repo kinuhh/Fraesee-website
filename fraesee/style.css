@@ -18,33 +18,46 @@ body {
 
     box-sizing: border-box;
 
+    position: relative;
+}
+
+body::before {
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    z-index: -1;
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+
+    will-change: transform;
+    transform: translateZ(0);
 }
 
-body.home {
+body.home::before {
     background-image: url("images/star3.gif");
 }
 
-body.gallery {
+body.gallery::before {
     background-image: url("images/bgcompressiongodmode.jpg");
 }
 
-body.projects {
+body.projects::before {
     background-image: url("images/bgblack.jpg");
 }
 
-body.contact {
+body.contact::before {
     background-image: url("images/pattern.jpg");
 }
 
-body.about {
+body.about::before {
     background-image: url("images/bgxd.jpg");
 }
 
-body.osu {
+body.osu::before {
     background-image: url("images/star3.gif");
 }
 
@@ -91,6 +104,9 @@ img {
     border: 3px solid rgba(255,255,255,.35);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    will-change: backdrop-filter;
+    transform: translateZ(0);
+    contain: paint;
 
     padding: 30px;
     margin: 20px auto;
@@ -106,6 +122,9 @@ img {
     border: 3px solid rgba(255,255,255,.35);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    will-change: backdrop-filter;
+    transform: translateZ(0);
+    contain: paint;
 
     padding: 25px;
     margin: 20px auto;
@@ -123,6 +142,9 @@ img {
     border: 3px solid rgba(255,255,255,.35);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    will-change: backdrop-filter;
+    transform: translateZ(0);
+    contain: paint;
 
     padding: 25px;
     margin: 20px auto;
@@ -223,6 +245,9 @@ img {
     border: 3px solid rgba(255,255,255,.35);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    will-change: backdrop-filter;
+    transform: translateZ(0);
+    contain: paint;
 
     padding: 20px;
 

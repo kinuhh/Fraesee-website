@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fraesee - 3d spaec</title>
+
+    <link rel="icon" type="image/jpg" href="images/favicon.jpg">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* could add to css? maybe later i need to get it working foirst */
+        #space-canvas-container {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+        }
+        #space-canvas-container canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        #space-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            font-family: monospace, sans-serif;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+        }
+        #space-overlay.hidden {
+            display: none;
+        }
+        #space-overlay .big {
+            font-size: 1.3em;
+        }
+        #space-hint {
+            position: fixed;
+            bottom: 12px;
+            left: 12px;
+            z-index: 5;
+            color: #fff;
+            font-family: monospace, sans-serif;
+            font-size: 0.8em;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 6px 10px;
+            border-radius: 6px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        #space-hint.visible {
+            opacity: 1;
+        }
+        .navbotum {
+            position: relative;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="about">
+
+    <nav class="navbotum">
+        <a href="index.html" data-label="home">home</a>
+        <a href="about.html" data-label="about me">about me</a>
+        <a href="projects.html" data-label="projects">projects</a>
+        <a href="gallery.html" data-label="gallery">gallery</a>
+        <a href="socials.html" data-label="socials">socials</a>
+    </nav>
+
+    <div id="space-canvas-container"></div>
+
+    <div id="space-overlay">
+        <div class="big">click to move around!!!!!!!!</div>
+        <div>wasd to move - mouse to look around - escape button to leave</div>
+    </div>
+    <div id="space-hint">wasd to move - mouse to look around - escape to leave</div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
+
+        /*
+            ROOM SIZE STUFF! IMPORTANT!!!!!!!!!!!!!!!
+*/
+        const roomsize   = 90;   //width/depth
+        const wallhite = 6;    //wall height
+        const eyelvl  = 1.7;  //cam height
+        const phoon  = 12;   //speed
+        const wallhitbox = 0.8;    //howclose you can get to the wall
+
+        const texwall  = "images/wall.jpg";
+        const texfloor = "images/floor.jpg";
+        const texsky   = "images/sky.jpg";
+
+        const container = document.getElementById('space-canvas-container');
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(
+            75, window.innerWidth / window.innerHeight, 0.1, 1000
+        );
+        camera.position.set(0, eyelvl, 0);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        container.appendChild(renderer.domElement);
+
+
+
+
+        scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+        const sun = new THREE.DirectionalLight(0xffffff, 0.6);
+        sun.position.set(10, 20, 10);
+        scene.add(sun);
+
+        const texLoader = new THREE.TextureLoader();
+
+        const skyTexture = texLoader.load(texsky);
+        skyTexture.colorSpace = THREE.SRGBColorSpace;
+        const skyGeo = new THREE.SphereGeometry(500, 60, 40);
+        //maybe add these att the top of the page????
+        const skyMat = new THREE.MeshBasicMaterial({
+            map: skyTexture,
+            side: THREE.BackSide
+        });
+        scene.add(new THREE.Mesh(skyGeo, skyMat));
+
+//floooooor
+        const floorTexture = texLoader.load(texfloor);
+        floorTexture.wrapS = floorTexture.wrapT = THREE.RepeatWrapping;
+        floorTexture.repeat.set(roomsize / 4, roomsize / 4);
+        floorTexture.colorSpace = THREE.SRGBColorSpace;
+
+        const floor = new THREE.Mesh(
+            new THREE.PlaneGeometry(roomsize, roomsize),
+            new THREE.MeshStandardMaterial({ map: floorTexture })
+        );
+        floor.rotation.x = -Math.PI / 2;
+        scene.add(floor);
+        const wallTexture = texLoader.load(texwall);
+        wallTexture.wrapS = wallTexture.wrapT = THREE.RepeatWrapping;
+        wallTexture.repeat.set(roomsize / 4, wallhite / 4);
+        wallTexture.colorSpace = THREE.SRGBColorSpace;
+
+        const wallMat = new THREE.MeshStandardMaterial({
+            map: wallTexture,
+            side: THREE.DoubleSide
+        });
+
+        function makeWall(width, x, z, rotY) {
+            const wall = new THREE.Mesh(
+                new THREE.PlaneGeometry(width, wallhite),
+                wallMat
+            );
+            wall.position.set(x, wallhite / 2, z);
+            wall.rotation.y = rotY;
+            scene.add(wall);
+        }
+
+        const half = roomsize / 2;
+        makeWall(roomsize, 0, -half, 0);    //back
+        makeWall(roomsize, 0, half, Math.PI); //front
+        makeWall(roomsize, -half, 0, Math.PI / 2); //left
+        makeWall(roomsize, half, 0, -Math.PI / 2); //right
+        const controls = new PointerLockControls(camera, renderer.domElement);
+        scene.add(controls.getObject());
+
+        const overlay = document.getElementById('space-overlay');
+        const hint = document.getElementById('space-hint');
+
+        overlay.addEventListener('click', () => controls.lock());
+        controls.addEventListener('lock', () => {
+
+            overlay.classList.add('hidden');
+            hint.classList.add('visible');
+        });
+        controls.addEventListener('unlock', () => {
+            overlay.classList.remove('hidden');
+            hint.classList.remove('visible');
+        });
+
+        const keys = { w: false, a: false, s: false, d: false };
+        document.addEventListener('keydown', (e) => {
+            const k = e.key.toLowerCase();
+            if (k in keys) keys[k] = true;
+        });
+        document.addEventListener('keyup', (e) => {
+            const k = e.key.toLowerCase();
+            if (k in keys) keys[k] = false;
+        });
+
+        const clock = new THREE.Clock();
+        const forward = new THREE.Vector3();
+        const right = new THREE.Vector3();
+
+
+
+
+        function clampToRoom() {
+            const obj = controls.getObject();
+            const limit = half - wallhitbox;
+            obj.position.x = Math.max(-limit, Math.min(limit, obj.position.x));
+            obj.position.z = Math.max(-limit, Math.min(limit, obj.position.z));
+            obj.position.y = eyelvl; 
+
+
+
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const delta = clock.getDelta();
+
+            if (controls.isLocked) {
+                camera.getWorldDirection(forward);
+                forward.y = 0;
+                forward.normalize();
+                right.crossVectors(forward, camera.up).normalize();
+
+                const step = phoon * delta;
+                if (keys.w) controls.getObject().position.addScaledVector(forward, step);
+                if (keys.s) controls.getObject().position.addScaledVector(forward, -step);
+
+                //what
+                if (keys.d) controls.getObject().position.addScaledVector(right, step);
+                if (keys.a) controls.getObject().position.addScaledVector(right, -step);
+
+                clampToRoom();
+            }
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            //hope this works!!!!!!!!!!!!!!
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+
+</body>
+</html>
